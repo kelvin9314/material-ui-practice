@@ -11,26 +11,26 @@ import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
-  bth: {
-    fontSize: 40,
-    backgroundColor: 'violet',
-    '&:hover': {
-      backgroundColor: 'blue',
-    }
-  },
-  title: {
-    textDecoration: 'underline',
-    marginBottom: 20
-  }
+  // bth: {
+  //   fontSize: 40,
+  //   backgroundColor: 'violet',
+  //   '&:hover': {
+  //     backgroundColor: 'blue',
+  //   }
+  // },
+  // title: {
+  //   textDecoration: 'underline',
+  //   marginBottom: 20
+  // }
 })
 
 export default function Create() {
-  const classes = useStyles()
+  // const classes = useStyles()
 
   return (
     <Container>
       <Typography
-        className={classes.title}
+        // className={classes.title}
         variant="h6"
         color="textSecondary"
         component="h2"
@@ -53,7 +53,7 @@ export default function Create() {
       </Typography> */}
 
       <Button
-        className={classes.bth}
+        // className={classes.bth}
         onClick={() => console.log('you clicked me')}
         type="submit"
         color="secondary"
