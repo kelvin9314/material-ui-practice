@@ -5,11 +5,16 @@ import Button from '@material-ui/core/Button';
 // import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Container from '@material-ui/core/Container';
 import TextField from '@material-ui/core/TextField';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import { FormControlLabel, FormControl, FormLabel } from '@material-ui/core';
+
 // import AcUnitOutlinedIcon from '@material-ui/icons/AcUnitOutlined';
 // import SendIcon from '@material-ui/icons/Send';
 import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
 
 import { makeStyles } from '@material-ui/core/styles';
+
 
 const useStyles = makeStyles({
   filed: {
@@ -26,6 +31,7 @@ export default function Create() {
   const [details, setDetails] = useState('')
   const [titleError, setTitleError] = useState(false)
   const [detailsError, setDetailsError] = useState(false)
+  const [category, setCategory] = useState('todos')
 
   const resetErrors = () => {
     setTitleError(false)
@@ -40,7 +46,7 @@ export default function Create() {
     if(details === '') setDetailsError(true)
 
     if(title && details) {
-      console.log(title,  details)
+      console.log(title,  details, category )
 
     }
 
@@ -93,6 +99,18 @@ export default function Create() {
           required
           error={detailsError}
         />
+
+        <FormControl className={classes.filed}>
+          <FormLabel>Note Category</FormLabel>
+          <RadioGroup value={category} onChange={(e) => setCategory(e.target.value)}>
+            <FormControlLabel value="money" control={<Radio />} label="Money" />
+            <FormControlLabel value="todos" control={<Radio />} label="Todos" />
+            <FormControlLabel value="reminders" control={<Radio />} label="Reminders" />
+            <FormControlLabel value="work" control={<Radio />} label="Work" />
+          </RadioGroup>
+        </FormControl>
+
+
         <Button
           type="submit"
           color="secondary"
