@@ -14,6 +14,7 @@ import { FormControlLabel, FormControl, FormLabel } from '@material-ui/core';
 import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
 
 import { makeStyles } from '@material-ui/core/styles';
+import { useHistory } from 'react-router-dom';
 
 
 const useStyles = makeStyles({
@@ -27,6 +28,7 @@ const useStyles = makeStyles({
 
 export default function Create() {
   const classes = useStyles()
+  const history = useHistory()
   const [title, setTitle] = useState('')
   const [details, setDetails] = useState('')
   const [titleError, setTitleError] = useState(false)
@@ -46,7 +48,12 @@ export default function Create() {
     if(details === '') setDetailsError(true)
 
     if(title && details) {
-      console.log(title,  details, category )
+      // console.log(title,  details, category )
+      fetch('http://localhost:3004/notes', {
+        method: 'POST',
+        headers: {"Content-type": "application/json"},
+        body: JSON.stringify({title,  details, category})
+      }).then(() => history.push('/'))
 
     }
 
