@@ -23,6 +23,18 @@
       "details": "phone bill and car bill",
       "category": "money",
       "id": 4
+    },
+    {
+      "title": "buy some water tmr",
+      "details": "buy some water tmr",
+      "category": "reminders",
+      "id": 5
+    },
+    {
+      "title": "wath 3 books",
+      "details": "books about GYM",
+      "category": "todos",
+      "id": 6
     }
   ]
 }
