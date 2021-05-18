@@ -7,7 +7,10 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
+import Avatar from '@material-ui/core/Avatar';
+
 import { AddCircleOutlineOutlined, SubjectOutlined } from '@material-ui/icons';
+
 import { useHistory, useLocation } from 'react-router';
 import dayjs from 'dayjs'
 import localizedFormat from 'dayjs/plugin/localizedFormat'
@@ -45,6 +48,9 @@ const useStyles = makeStyles((theme) => {
     toolbar: theme.mixins.toolbar,
     date: {
       flexGrow: 1
+    },
+    avatar: {
+      marginLeft: theme.spacing(2)
     }
   }
 })
@@ -79,8 +85,9 @@ export default function Layout({ children }) {
             Today is { dayjs().format('LLL') }
           </Typography>
           <Typography >
-            Kelvin
+            Mario
           </Typography>
+          <Avatar src="/asset/images/mario-av.png"  className={classes.avatar} />
         </Toolbar>
       </AppBar>
       {/* side drawer ? */}
