@@ -14,8 +14,11 @@ import { AddCircleOutlineOutlined, SubjectOutlined } from '@material-ui/icons';
 import { useHistory, useLocation } from 'react-router';
 import dayjs from 'dayjs'
 import localizedFormat from 'dayjs/plugin/localizedFormat'
-dayjs.extend(localizedFormat)
 
+import Notice from '../components/Notice'
+// import {RDialogCenter} from '../components/Notice'
+
+dayjs.extend(localizedFormat)
 
 const drawerWidth = 240
 
@@ -73,6 +76,17 @@ export default function Layout({ children }) {
     },
   ]
 
+  const renderSomething = () => {
+
+    Notice.show({
+      title: '變更密碼成功',
+      // duration: 2000,
+      // onElementRemoveFn: () => history.push('/create')
+    })
+
+  }
+
+
   return (
     <div className={classes.root}>
       {/* app bar ? */}
@@ -114,6 +128,13 @@ export default function Layout({ children }) {
               <ListItemText primary={item.text}/>
             </ListItem>
           ))}
+          <ListItem
+             key={'test-total'}
+             button
+             onClick={renderSomething}
+          >
+            toggle Notice
+          </ListItem>
         </List>
 
       </Drawer>
